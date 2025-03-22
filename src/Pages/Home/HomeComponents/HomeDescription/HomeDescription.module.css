@@ -1,0 +1,147 @@
+.gradient {
+  position: relative;
+  width: 100%;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(17, 9, 30, 0) 0%,
+      rgba(17, 9, 30, 0.5) 50%,
+      #11091e 100%
+    ),
+    url(/gradientStripe.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.desc_wrapper {
+  margin: auto;
+  margin-top: 150px;
+  margin-bottom: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.wrapper__title {
+  max-width: 374px;
+}
+
+.wrapper__title h2 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48.76px;
+}
+
+.wrapper__subtitle {
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.wrapper__subtitle h3 {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 55px;
+}
+
+.wrapper__subtitle p {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24.38px;
+}
+
+.hero_wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: center;
+  position: relative;
+}
+
+.wrapper__img1 {
+  width: 100%;
+  height: 280px;
+  transition: 0.3s ease-in-out;
+}
+
+.wrapper__img {
+  width: 100%;
+  height: 280px;
+  margin-left: -10px;
+  transition: 0.3s ease-in-out;
+}
+
+.wrapper__img:hover,
+.wrapper__img1:hover {
+  filter: drop-shadow(0 0 5px #7f17af);
+}
+
+.image_container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: -4px;
+}
+.gradientStripe {
+  border: 2px solid #a229e2;
+
+  box-shadow: 0 0 7px 0 #ff00e1, 0 0 14px 0 #ff00e1, 0 0 49px 0 #ff00e1,
+    0 0 98px 0 #ff00e1, 0 0 167px 0 #ff00e1, 0 0 250px 0 #ff00e1;
+  opacity: 0.3;
+}
+.popup {
+  position: absolute;
+  width: 320px;
+  height: 180px;
+  background: rgba(86, 7, 86, 0.8);
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 15px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+  padding: 0px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.popup_title {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24.38px;
+  margin-bottom: 15px;
+}
+
+.popup_desc {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24.38px;
+  text-align: left;
+  padding-left: 15px;
+}
+
+.image_container:hover .popup {
+  opacity: 1;
+  visibility: visible;
+}
