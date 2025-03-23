@@ -20,7 +20,7 @@ export const navVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.1,
     },
   },
 };
@@ -36,21 +36,4 @@ export const itemVariants = {
       ease: [0.43, 0.13, 0.23, 0.96],
     },
   },
-};
-
-export const buttonVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-  hover: {
-    scale: 1.05,
-    boxShadow: "0px 0px 8px rgba(147, 51, 234, 0.3)",
-  },
-  tap: { scale: 0.95 },
 };

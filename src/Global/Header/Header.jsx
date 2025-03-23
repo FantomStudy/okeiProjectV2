@@ -1,82 +1,43 @@
-import { motion } from "motion/react";
 import styles from "./Header.module.css";
-import logoOKEI from "../../../public/logoOKEI.svg";
-import purpleStripe from "../../../public/purpleStripe.svg";
+import { motion } from "framer-motion";
+import {
+  logoVariants,
+  navVariants,
+  itemVariants,
+} from "../../assets/animation/headerAnimation";
+import Button from "../Button/Button";
 
 export default function Header() {
   return (
-    <motion.div
-      className={styles.wrapper}
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: "easeOut" }}
+    <motion.header
+      className={styles.header_wrapper}
+      initial="hidden"
+      animate="visible"
+      viewport={{ once: true }}
+      transition={{ staggerChildren: 0.2 }}
     >
-      <motion.div
+      <motion.img
+        src="/logoOKEI.svg"
+        alt="logo"
         className={styles.logo}
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-      >
-        <img src={logoOKEI} alt="logoOKEI" />
-      </motion.div>
-
-      <motion.div
-        className={styles.header_nav_container}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-      >
-        <div className={styles.nav}>
-          <ul>
-            <motion.li
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              Руководители
-            </motion.li>
-            <motion.li
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <img src={purpleStripe} alt="purpleStripe" />
-            </motion.li>
-            <motion.li
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-            >
-              Работы
-            </motion.li>
-            <motion.li
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <img src={purpleStripe} alt="purpleStripe" />
-            </motion.li>
-            <motion.li
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
-            >
-              Направления
-            </motion.li>
-          </ul>
-        </div>
-
-        <motion.button
-          className={styles.button}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Заказать
-        </motion.button>
-      </motion.div>
-    </motion.div>
+        variants={logoVariants}
+      />
+      <motion.nav className={styles.navigation} variants={navVariants}>
+        <ul>
+          <motion.li className={styles.crumb} variants={itemVariants}>
+            <a href="#">Руководители</a>
+          </motion.li>
+          <motion.span className={styles.separator} variants={itemVariants} />
+          <motion.li className={styles.crumb} variants={itemVariants}>
+            <a href="#">Направления</a>
+          </motion.li>
+          <motion.span className={styles.separator} variants={itemVariants} />
+          <motion.li className={styles.crumb} variants={itemVariants}>
+            <a href="#">Работы</a>
+          </motion.li>
+        </ul>
+      </motion.nav>
+      <Button>Заказать</Button>
+    </motion.header>
   );
 }

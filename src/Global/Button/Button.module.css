@@ -1,7 +1,7 @@
 .button {
   width: clamp(150px, 18vw, 227px);
   height: 55px;
-  font-size: clamp(16px, 2.5vw, 20px);
+  font-size: clamp(16px, 2vw, 20px);
   border: none;
   border-radius: 100px;
   color: white;

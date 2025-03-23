@@ -1,27 +1,25 @@
-import { HomeTitle as Home } from "./HomeComponents/HomeTitle/HomeTitle";
-import HomeTitle from "./HomeComponents/HomeTitle/v2/HomeTitle";
-import HomeDescription from "./HomeComponents/HomeDescription/HomeDescription";
+import  Description from "./HomeComponents/Description/Description";
 import HomeDirections from "./HomeDirections/HomeDirections";
 import HomeCards from "./HomeCards/HomeCards";
 import HomeForm from "../Home/HomeForm/HomeForm";
 import Footer from "../../Global/Footer/Footer";
 import UnderFooter from "../../Global/Footer/UnderFooter";
+import Hero from "./HomeComponents/Hero/Hero";
 
 export default function HomeLayout() {
   return (
     <>
       <div className="container">
-        <Home />
-        <HomeTitle />
-        {/* <HomeDescription /> */}
+        <Hero />
+        <Description />
         {/* <div className="gridLines">
           <HomeDirections />
           <HomeCards />
           <HomeForm />
         </div> */}
       </div>
-      <Footer />
-      <UnderFooter />
+      {/* <Footer /> */}
+      {/* <UnderFooter /> */}
     </>
   );
 }

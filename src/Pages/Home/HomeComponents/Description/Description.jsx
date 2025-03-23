@@ -1,4 +1,4 @@
-import styles from "./HomeDescription.module.css";
+import styles from "./Description.module.css";
 import prepod from "/prepod.png";
 import prepod2 from "/prepod2.png";
 import prepod3 from "/prepod3.png";
@@ -7,31 +7,38 @@ import prepod5 from "/prepod5.png";
 
 export default function HomeDescription() {
   return (
-    <div className={styles.gradient}>
+    <div className={styles.desc_container}>
       <div className={styles.background}></div>
+
       <div className="container">
         <div className={styles.desc_wrapper}>
-          <div className={styles.wrapper__title}>
+          <div className={styles.desc_wrapper__block}>
             <h2>Наша команда готова к любым задачам</h2>
           </div>
-          <div className={styles.wrapper__subtitle}>
-            <h3>Наша команда</h3>
-            <p>
-              Мы собрали опытных преподавателей и специалистов в IT, дизайне и
-              других областях, чтобы помочь студентам раскрыть их потенциал.
-            </p>
-          </div>
-          <div className={styles.wrapper__subtitle}>
-            <h3>Наш колледж</h3>
-            <p>
-              Наш колледж предлагает современное образование и практические
-              навыки, которые позволяют создавать качественные проекты и успешно
-              начинать карьеру.
-            </p>
+
+          <div className={styles.about_wrapper}>
+            <div className={styles.about_wrapper__block}>
+              <h3>Наша команда</h3>
+              <p>
+                Мы собрали опытных преподавателей и специалистов в IT, дизайне и
+                других областях, чтобы помочь студентам раскрыть их потенциал.
+              </p>
+            </div>
+            <div className={styles.about_wrapper__block}>
+              <h3>Наш колледж</h3>
+              <p>
+                Наш колледж предлагает современное образование и практические
+                навыки, которые позволяют создавать качественные проекты и
+                успешно начинать карьеру.
+              </p>
+            </div>
           </div>
         </div>
 
         <div className={styles.hero_wrapper}>
+          {
+            
+          }
           <div className={styles.image_container}>
             <img src={prepod} alt="prepod" className={styles.wrapper__img1} />
             <div className={styles.popup}>
