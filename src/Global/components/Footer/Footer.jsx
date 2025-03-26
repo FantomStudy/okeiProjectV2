@@ -8,10 +8,10 @@ export default function Footer() {
           <img src="/logoOKEI.svg" alt="logoOKEI" className={styles.img} />
 
           <div className={styles.nav}>
-            <p>Руководители</p>
-            <p>Направления</p>
-            <p>Работы</p>
-            <p>Заявка</p>
+            <a href="#managers">Руководители</a>
+            <a href="#directions">Направления</a>
+            <a href="#projects">Работы</a>
+            <a href="#order">Заявка</a>
           </div>
           <div className={styles.contacts}>
             <a href="mailto:oksei24@mail.ru">oksei24@mail.ru</a>

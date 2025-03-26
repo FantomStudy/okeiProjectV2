@@ -1,10 +1,11 @@
-import styles from "./Header.module.css";
 import { motion } from "framer-motion";
 import {
   logoVariants,
   navVariants,
   itemVariants,
-} from "../../assets/animation/headerAnimation";
+} from "../../../assets/animation/headerAnimation";
+import { navigateTo } from "../../../assets/functions";
+import styles from "./Header.module.css";
 import Button from "../Button/Button";
 
 export default function Header() {
@@ -25,19 +26,25 @@ export default function Header() {
       <motion.nav className={styles.navigation} variants={navVariants}>
         <ul>
           <motion.li className={styles.crumb} variants={itemVariants}>
-            <a href="#">Руководители</a>
+            <a href="#managers">Руководители</a>
           </motion.li>
           <motion.span className={styles.separator} variants={itemVariants} />
           <motion.li className={styles.crumb} variants={itemVariants}>
-            <a href="#">Направления</a>
+            <a href="#directions">Направления</a>
           </motion.li>
           <motion.span className={styles.separator} variants={itemVariants} />
           <motion.li className={styles.crumb} variants={itemVariants}>
-            <a href="#">Работы</a>
+            <a href="#projects">Работы</a>
           </motion.li>
         </ul>
       </motion.nav>
-      <Button>Заказать</Button>
+      <Button
+        onClick={() => {
+          navigateTo("order");
+        }}
+      >
+        Заказать
+      </Button>
     </motion.header>
   );
 }

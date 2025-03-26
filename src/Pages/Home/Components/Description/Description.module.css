@@ -2,19 +2,16 @@
   position: relative;
   width: 100%;
 }
-.background {
-  width: 100vw;
+.gradient {
+  left: 0;
+  right: 0;
   height: 100vh;
 
   position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-
   background: linear-gradient(
       to bottom,
-      rgba(17, 9, 30, 0) 0%,
+      var(--body-background) 0%,
+      rgba(17, 9, 30, 0) 15%,
       rgba(17, 9, 30, 0.5) 50%,
       #11091e 100%
     ),
@@ -24,7 +21,7 @@
 }
 
 .desc_wrapper {
-  margin: 80px 0 150px;
+  margin: 75px 0 180px;
   display: flex;
   justify-content: space-between;
   grid-gap: 15px;
@@ -32,7 +29,6 @@
 
 .desc_wrapper__block h2 {
   width: clamp(280px, 30vw, 330px);
-
   font-size: clamp(32px, 3.4vw, 38px);
 }
 
@@ -44,6 +40,7 @@
 .about_wrapper__block {
   display: flex;
   flex-direction: column;
+  max-width: 470px;
   grid-gap: 15px;
 }
 .about_wrapper__block h3 {
@@ -59,83 +56,93 @@
   align-items: end;
   justify-content: center;
   position: relative;
+  overflow: hidden;
+  opacity: 0;
 }
-/*
-
-.wrapper__img1 {
-  width: 100%;
-  height: 280px;
-  transition: 0.3s ease-in-out;
+.hero_wrapper__img {
+  height: clamp(220px, 20vw, 282px);
+  transition: filter 0.3s ease-in-out;
 }
-
-.wrapper__img {
-  width: 100%;
-  height: 280px;
-  margin-left: -10px;
-  transition: 0.3s ease-in-out;
+.hero_wrapper__img:hover {
+  filter: drop-shadow(0 0 15px #7f17af);
 }
-
-.wrapper__img:hover,
-.wrapper__img1:hover {
-  filter: drop-shadow(0 0 5px #7f17af);
-}
-
-.image_container {
+.hero_wrapper__container {
+  display: flex;
+  justify-content: end;
   position: relative;
-  display: inline-block;
-  margin-bottom: -4px;
 }
-.gradientStripe {
-  border: 2px solid #a229e2;
 
+.popup {
+  width: 320px;
+  height: 180px;
+  padding: 0 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: clamp(18px, 1.5vw, 20px);
+  line-height: 24.38px;
+
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(5px);
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(86, 7, 86, 0.8);
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out,
+    filter 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+.popup_title,
+.popup_desc {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.popup_title {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.popup_desc {
+  font-weight: 500;
+}
+
+.hero_wrapper__container:hover .popup_title,
+.hero_wrapper__container:hover .popup_desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero_wrapper__container:hover .popup_title {
+  transition-delay: 0.15s;
+}
+.hero_wrapper__container:hover .popup_desc {
+  transition-delay: 0.3s;
+}
+
+.hero_wrapper__container:hover .popup {
+  opacity: 1;
+  visibility: visible;
+  filter: blur(0px);
+  transform: translateX(-50%) translateY(0);
+}
+
+.gradientStripe {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #a229e2;
   box-shadow: 0 0 7px 0 #ff00e1, 0 0 14px 0 #ff00e1, 0 0 49px 0 #ff00e1,
     0 0 98px 0 #ff00e1, 0 0 167px 0 #ff00e1, 0 0 250px 0 #ff00e1;
   opacity: 0.3;
 }
-.popup {
-  position: absolute;
-  width: 320px;
-  height: 180px;
-  background: rgba(86, 7, 86, 0.8);
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 15px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-in-out;
-  padding: 0px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-radius: 10px;
-}
 
-.popup_title {
-  font-family: Montserrat;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24.38px;
-  margin-bottom: 15px;
-}
-
-.popup_desc {
-  font-family: Montserrat;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24.38px;
-  text-align: left;
-  padding-left: 15px;
-}
-
-.image_container:hover .popup {
-  opacity: 1;
-  visibility: visible;
-}
-*/
 @media (max-width: 840px) {
   .desc_wrapper {
     flex-direction: column;

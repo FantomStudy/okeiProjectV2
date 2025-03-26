@@ -1,10 +1,11 @@
-import styles from "./HomeForm.module.css";
+import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import download from "/download.png";
+import styles from "./Form.module.css";
+import Button from "../../../Global/components/Button/Button";
 
 export default function HomeForm() {
-  const [fileName, setFileName] = useState(""); // Состояние для имени файла
+  const [fileName, setFileName] = useState("");
   const [formData, setFormData] = useState({
     organizationName: "",
     contactPerson: "",
@@ -121,92 +122,77 @@ export default function HomeForm() {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id="order">
       <ToastContainer />
       <div className={styles.container}>
         <div className={styles.inner}>
-          <form onSubmit={handleSubmit}>
-            <div className={styles.column}>
-              <div className={styles.fullWidth}>
-                <input
-                  type="text"
-                  id="organization"
-                  name="organizationName"
-                  onChange={handleChange}
-                  placeholder="Наименование организации"
-                />
-              </div>
-              <div className={styles.fullWidth}>
-                <input
-                  type="text"
-                  id="contact-person"
-                  name="contactPerson"
-                  onChange={handleChange}
-                  placeholder="Контактное лицо"
-                />
-              </div>
-              <div className={styles.fullWidth}>
-                <input
-                  type="text"
-                  id="phone"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                  placeholder="+7 (XXX) XXX-XX-XX"
-                  maxLength={18}
-                />
-                {errors.phoneNumber && (
-                  <span className={styles.error}>{errors.phoneNumber}</span>
-                )}
-              </div>
-              <div className={styles.fullWidth}>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  onChange={handleChange}
-                  placeholder="Электронная почта"
-                />
-              </div>
-              <div className={styles.fullWidth}>
-                <input
-                  type="text"
-                  id="deadline"
-                  name="deadline"
-                  onChange={handleChange}
-                  placeholder="Сроки выполнения"
-                />
-              </div>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <input
+              type="text"
+              id="organization"
+              name="organizationName"
+              onChange={handleChange}
+              placeholder="Наименование организации"
+            />
+            <input
+              type="text"
+              id="contact-person"
+              name="contactPerson"
+              onChange={handleChange}
+              placeholder="Контактное лицо"
+            />
+            <input
+              type="text"
+              id="phone"
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              placeholder="+7 (XXX) XXX-XX-XX"
+              maxLength={18}
+            />
+            {errors.phoneNumber && (
+              <span className={styles.error}>{errors.phoneNumber}</span>
+            )}
+            <input
+              type="email"
+              id="email"
+              name="email"
+              onChange={handleChange}
+              placeholder="Электронная почта"
+            />
+            <input
+              type="text"
+              id="deadline"
+              name="deadline"
+              onChange={handleChange}
+              placeholder="Сроки выполнения"
+            />
 
-              <div className={styles.fullWidth}>
-                <input
-                  type="file"
-                  id="file-upload"
-                  name="file-upload"
-                  onChange={handleFileChange}
-                  style={{ display: "none" }}
-                />
-                <label
-                  htmlFor="file-upload"
-                  className={styles.fileUpload}
-                  style={{ cursor: "pointer" }}
-                >
-                  <span>{fileName || "Добавить техническое задание"}</span>
-                  <img src={download} alt="download" />
-                </label>
-              </div>
+            <div className={styles.file_input}>
+              <input
+                type="file"
+                id="file-upload"
+                name="file-upload"
+                onChange={handleFileChange}
+                style={{ display: "none" }}
+              />
+              <label htmlFor="file-upload" className={styles.fileUpload}>
+                <span>{fileName || "Добавить техническое задание"}</span>
+                <img src="/download.png" alt="download" />
+              </label>
             </div>
+            <Button type="submit" onClick={handleSubmit}>
+              Отправить
+            </Button>
           </form>
           <div className={styles.text}>
-            <h1>Ваша заявка</h1>
-            <h2>— первый шаг к нашей совместной работе!</h2>
-            <button
-              onClick={handleSubmit}
-              type="submit"
-              className={styles.submiBtn}
-            >
+            <div>
+              <h2>Ваша заявка</h2>
+              <h3>— первый шаг к нашей совместной работе!</h3>
+            </div>
+            <Button type="submit" onClick={handleSubmit}>
               Отправить
-            </button>
+            </Button>
           </div>
         </div>
       </div>

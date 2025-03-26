@@ -3,6 +3,7 @@
 :root {
   color: white;
   font-family: Montserrat;
+  scroll-behavior: smooth;
 
   --body-background: #11091e;
   --primary-purple: #a417e5;

@@ -25,18 +25,17 @@
   gap: 50px;
 }
 
-.nav p {
-  font-family: Montserrat;
+.nav a {
+  color: #fff;
+  text-decoration: none;
   font-weight: 500;
   font-size: 18px;
   line-height: 55px;
   letter-spacing: 0%;
-  text-align: center;
 }
 .contacts {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 30px;
 }
 .contacts a {
@@ -65,5 +64,35 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 30px;
+  }
+}
+@media (max-width: 840px) {
+  .footer_wrapper {
+    flex-direction: column;
+    grid-gap: 15px;
+  }
+  .nav {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 15px;
+  }
+  .nav a {
+    text-align: center;
+  }
+  .contacts {
+    align-items: center;
+    grid-gap: 15px;
+  }
+  .img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 450px) {
+  .nav p {
+    font-size: 16px;
+  }
+  .contacts a {
+    font-size: 16px;
   }
 }

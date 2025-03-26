@@ -1,25 +1,23 @@
-import  Description from "./HomeComponents/Description/Description";
-import HomeDirections from "./HomeDirections/HomeDirections";
-import HomeCards from "./HomeCards/HomeCards";
-import HomeForm from "../Home/HomeForm/HomeForm";
-import Footer from "../../Global/Footer/Footer";
-import UnderFooter from "../../Global/Footer/UnderFooter";
-import Hero from "./HomeComponents/Hero/Hero";
+import Description from "./Components/Description/Description";
+import Directions from "./Directions/Directions";
+import Projects from "./Projects/Projects";
+import Form from "./Form/Form";
+import Footer from "../../Global/components/Footer/Footer";
+import UnderFooter from "../../Global/components/Footer/UnderFooter";
+import Hero from "./Components/Hero/Hero";
 
 export default function HomeLayout() {
   return (
     <>
-      <div className="container">
-        <Hero />
-        <Description />
-        {/* <div className="gridLines">
-          <HomeDirections />
-          <HomeCards />
-          <HomeForm />
-        </div> */}
+      <Hero />
+      <Description />
+      <div className="gridLines">
+        <Directions />
+        <Projects />
+        <Form />
       </div>
-      {/* <Footer /> */}
-      {/* <UnderFooter /> */}
+      <Footer />
+      <UnderFooter />
     </>
   );
 }
