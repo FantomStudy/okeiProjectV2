@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "motion/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Form.module.css";
@@ -122,7 +123,14 @@ export default function HomeForm() {
   };
 
   return (
-    <div className={styles.wrapper} id="order">
+    <motion.div
+      className={styles.wrapper}
+      id="order"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.6 }}
+    >
       <ToastContainer />
       <div className={styles.container}>
         <div className={styles.inner}>
@@ -196,6 +204,6 @@ export default function HomeForm() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
